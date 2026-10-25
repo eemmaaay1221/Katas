@@ -27,14 +27,21 @@ Add the following new rule, if a number is prime return Whizz. Only worry about 
   5      BuzzWhizz
  */
 export const game = (input: number) => {
-  if (input % 3 === 0 && input % 5 === 0) {
-    return "FizzBuzz";
-  }
+  let result = "";
+
   if (input % 3 === 0) {
-    return "Fizz";
+    result += "Fizz";
   }
   if (input % 5 === 0) {
-    return "Buzz";
+    result += "Buzz";
   }
-  return input;
+
+  // Lista de números primos hasta el 100 para la regla del Whizz
+  const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+  
+  if (primes.includes(input)) {
+    result += "Whizz";
+  }
+
+  return result === "" ? input : result;
 };
