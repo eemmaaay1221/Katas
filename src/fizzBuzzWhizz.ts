@@ -36,12 +36,19 @@ export const game = (input: number) => {
     result += "Buzz";
   }
 
-  // Lista de números primos hasta el 100 para la regla del Whizz
-  const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
-  
-  if (primes.includes(input)) {
+  // Generic and scalable methodology to check prime numbers of any size
+  if (isPrime(input)) {
     result += "Whizz";
   }
 
   return result === "" ? input : result;
+};
+
+// Helper mathematical function to dynamically validate prime numbers
+const isPrime = (num: number): boolean => {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
 };

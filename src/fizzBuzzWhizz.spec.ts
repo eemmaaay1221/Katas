@@ -49,5 +49,9 @@ describe('FizzBuzz Game', () => {
     const result = game(75);
     expect(result).toEqual("FizzBuzz");
   });
-  
+  test('should return Whizz for large prime 2003', () => {
+    const result = game(2003);
+    expect(result).toEqual("Whizz");
+  });
+
 });
