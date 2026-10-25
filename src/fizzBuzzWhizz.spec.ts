@@ -9,4 +9,17 @@ describe('FizzBuzz Game', () => {
     const result = game(2);
     expect(result).toEqual(2);
   });
+  test('should works 3', () => {
+    const result = game(3);
+    expect(result).toEqual("Fizz");
+  });
+  test('should works 4',() => {
+    const result = game(4);
+    expect(result).toEqual(4);
+  });
+  test('should works 5',() => {
+    const result = game(5);
+    expect(result).toEqual("Buzz");
+  }
+   
 });
