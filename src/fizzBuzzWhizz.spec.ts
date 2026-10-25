@@ -53,5 +53,11 @@ describe('FizzBuzz Game', () => {
     const result = game(2003);
     expect(result).toEqual("Whizz");
   });
+  test('should work generically for all numbers greater than 0', () => {
+    for (let i = 1; i <= 100; i++) {
+      const result = game(i);
+      expect(result).toBeDefined();
+    }
+  });
 
 });
