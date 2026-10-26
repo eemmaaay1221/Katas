@@ -26,7 +26,27 @@ Add the following new rule, if a number is prime return Whizz. Only worry about 
   4      4
   5      BuzzWhizz
  */
+const isPrime = (input: number): boolean => {
+  if (input < 2) {
+    return false;
+  }
+
+  for (let divisor = 2; divisor * divisor <= input; divisor++) {
+    if (input % divisor === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+// Applies the FizzBuzzWhizz rules to a positive integer.
 export const game = (input: number) => {
+  // Reject zero and negative numbers.
+  if (input <= 0) {
+    throw new RangeError("Input must be a positive integer.");
+  }
+
   let result = "";
 
   if (input % 3 === 0) {
@@ -42,13 +62,4 @@ export const game = (input: number) => {
   }
 
   return result === "" ? input : result;
-};
-
-// Helper mathematical function to dynamically validate prime numbers
-const isPrime = (num: number): boolean => {
-  if (num <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
-  }
-  return true;
 };
